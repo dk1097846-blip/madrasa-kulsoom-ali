@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madrasa Student Registration</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(120deg,#0a7a3d,#1e3c72);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+.container{
+    background:white;
+    padding:40px 50px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    width:400px;
+}
+h2{
+    text-align:center;
+    color:#0a7a3d;
+    margin-bottom:20px;
+}
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+}
+input:focus{border-color:#0a7a3d;}
+button{
+    width:100%;
+    padding:12px;
+    background:#0a7a3d;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:10px;
+    transition:0.3s;
+}
+button:hover{background:#075a2b;}
+.switch{
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
+}
+.switch a{
+    color:#0a7a3d;
+    text-decoration:none;
+}
+.switch a:hover{color:#075a2b;}
+@media(max-width:450px){
+    .container{width:90%; padding:30px;}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Madrasa Kulsoom Ali </h2>
+<h2>Student Registration</h2>
+<form>
+<input type="text" name="name" placeholder="Student Name" required>
+<input type="text" name="father_name" placeholder="Father Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="number" name="age" placeholder="Age" required>
+<input type="text" name="city" placeholder="City" required>
+<input type="password" name="password" placeholder="Password" required>
+<input type="text" name="Student" placeholder="Student CNIC" required>
+<button type="submit">Register</button>
+</form>
+<p class="switch">Already have an account? <a href="login.html">Login</a></p>
+</body>
+</html>

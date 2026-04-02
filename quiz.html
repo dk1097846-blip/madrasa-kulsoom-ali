@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Islamic Quiz</title>
+<style>
+body{font-family:Arial;background:#f4f4f4;padding:20px;}
+.container{max-width:900px;margin:auto;background:white;padding:20px;border-radius:10px;}
+.question{background:#fafafa;padding:10px;margin:10px 0;border-radius:5px;}
+.timer{color:red;font-size:18px;text-align:right;}
+button{padding:10px 20px;background:green;color:white;border:none;cursor:pointer;margin-top:20px;}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Islamic Quiz</h1>
+<div class="timer">Time Left: <span id="time">20:00</span></div>
+
+<form id="quizForm">
+<div class="question">1) Islam ka pehla kalma?<br>
+<input type="radio" name="q1" value="a"> La ilaha illallah<br>
+<input type="radio" name="q1" value="b"> Allah hu Akbar<br>
+</div>
+
+<div class="question">2) Quran kis par nazil hua?<br>
+<input type="radio" name="q2" value="a"> Prophet Muhammad ﷺ<br>
+<input type="radio" name="q2" value="b"> Prophet Musa AS<br>
+</div>
+
+<div class="question">3) Islam ka paighambar kaun hai?<br>
+<input type="radio" name="q3" value="a"> Prophet Muhammad ﷺ<br>
+<input type="radio" name="q3" value="b"> Prophet Isa AS<br>
+</div>
+
+<!-- Add upto 40 questions similarly -->
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+</form>
+
+<div id="result"></div>
+</div>
+
+<script>
+let time=1200; 
+let timer=setInterval(function(){
+let m=Math.floor(time/60);
+let s=time%60;
+if(s<10)s="0"+s;
+document.getElementById("time").innerHTML=m+":"+s;
+time--;
+if(time<0){clearInterval(timer);submitQuiz();}
+},1000);
+
+function submitQuiz(){
+clearInterval(timer);
+let answers={q1:"a",q2:"a",q3:"a"}; // add answers for all 40 questions
+let score=0;
+for(let q in answers){
+let sel=document.querySelector('input[name="'+q+'"]:checked');
+if(sel && sel.value===answers[q])score++;
+}
+let name=localStorage.getItem("studentName");
+let roll=localStorage.getItem("studentRoll");
+document.getElementById("quizForm").style.display="none";
+document.getElementById("result").innerHTML=
+"<h2>Result</h2>Name: "+name+"<br>Roll No: "+roll+"<br>Score: "+score+"<br>Percentage: "+(score/3*100)+"%";
+}
+</script>
+</body>
+</html>
